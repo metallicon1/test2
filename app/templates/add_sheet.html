@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import 'macros.html' as macros %}
+
+{% block css %}
+{% endblock css %}
+
+{% block js %}
+{% endblock js %}
+
+{% block content %}
+<div class="row">
+<div class="col-xs-12">
+    {% call macros.render_upload_form(form, action_url=url_for('add_sheet'), action_text='Add',
+    class_='form') %}
+        {% for field in form if field.widget.input_type != 'hidden' %}
+        {{ macros.render_field(field, label_visible=true) }}
+        {% endfor %}
+    {% endcall %}
+</div>
+</div>
+{% endblock content %} 
